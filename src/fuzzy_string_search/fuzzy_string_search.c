@@ -137,7 +137,7 @@ void fss_context_add_word(fss_context_t* ctx,const char* word){
 	unsigned int length=_string_length(word);
 	ctx->word_count++;
 	ctx->words=realloc(ctx->words,ctx->word_count*sizeof(fss_word_t));
-	(ctx->words+ctx->word_count-1)->data=malloc(length+1); // align on 64 bit boundary
+	(ctx->words+ctx->word_count-1)->data=malloc(length+1); // align on 256-bit boundary
 	_string_copy(word,(ctx->words+ctx->word_count-1)->data,length+1);
 	(ctx->words+ctx->word_count-1)->length=length;
 	(ctx->words+ctx->word_count-1)->_offset=0;
